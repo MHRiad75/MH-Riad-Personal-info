@@ -1,3 +1,7 @@
+/* ------------ IMPORT FONT ------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+/* ------------ GLOBAL RESET ------------ */
 * {
   margin: 0;
   padding: 0;
@@ -5,18 +9,22 @@
   scroll-behavior: smooth;
 }
 
+/* ------------ BODY ------------ */
 body {
-    font-family: 'Poppins', sans-serif;
-  background:teal;
-  background-size: 400% 400%;
+  background-image: url('background1.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
   color: #fff;
 }
 
+/* ------------ HEADER ------------ */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(170, 240, 251, 0.7);
   padding: 15px 60px;
   position: sticky;
   top: 0;
@@ -24,6 +32,7 @@ header {
   backdrop-filter: blur(10px);
 }
 
+/* ------------ LOGO ------------ */
 .logo {
   display: flex;
   align-items: center;
@@ -36,18 +45,24 @@ header {
   border-radius: 50%;
   border: 2px solid #00e6e6;
   box-shadow: 0 0 15px #00e6e6;
+  transition: 0.3s;
 }
 
 .logo img:hover {
   transform: scale(1.1);
 }
 
+/* ------------ NAVIGATION ------------ */
 nav ul {
   list-style: none;
   display: flex;
   gap: 25px;
 }
-
+nav a.active {
+  color: #00e6e6;
+  font-weight: 600;
+  text-shadow: 0px 0px 5px #00e6e6;
+}
 nav a {
   color: #fff;
   text-decoration: none;
@@ -59,28 +74,34 @@ nav a:hover {
   color: #00e6e6;
 }
 
+/* ------------ HAMBURGER BUTTON (Hidden in Large Screen) ------------ */
+.menu-btn {
+  display: none;
+  font-size: 34px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ------------ SECTION ------------ */
 .section {
-  max-width:900px;
+  max-width: 900px;
   margin: 40px auto;
   scroll-margin-top: 100px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 40px;
   text-align: left;
-
+  color: #fff;
 }
-Ol li{
-  text-align: left;
-  line-height: 1.5rem;
 
+ol li {
+  line-height: 2rem;
+  color: whitesmoke;
 }
+
 h2 {
   color: #00e6e6;
   margin-bottom: 15px;
-}
-
-ul {
-  list-style: none;
 }
 
 ul li {
@@ -96,7 +117,8 @@ form {
   margin: 0 auto;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 12px;
   border-radius: 8px;
   border: none;
@@ -112,7 +134,6 @@ button {
   color: #111;
   font-weight: 600;
   cursor: pointer;
-
 }
 
 footer {
@@ -122,10 +143,71 @@ footer {
   margin-top: 40px;
   color: #aaa;
 }
-#contact h2{
+
+#contact h2 {
   text-align: center;
 }
 
-#home h2, p{
+#home h1,
+#home h3 {
   text-align: center;
+  padding-bottom: 15px;
+  
+}
+
+/* ------------------------------------------------------ */
+/* ------------ RESPONSIVE SECTION FOR MOBILE ------------ */
+/* ------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 25px;
+  }
+
+  /* Show hamburger menu */
+  .menu-btn {
+    display: block;
+  }
+
+  /* Hide nav items in mobile */
+  nav ul {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    flex-direction: column;
+    width: 220px;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    text-align: left;
+  }
+
+  nav ul li {
+    margin: 12px 0;
+  }
+
+  /* When menu-btn clicked */
+  nav ul.show {
+    display: flex;
+  }
+
+  .section {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    width: 180px;
+  }
 }
