@@ -14,8 +14,8 @@ window.addEventListener('scroll', revealSections);
 revealSections();
 
 
-// Contact form handler
-document.getElementById('contactForm').addEventListener('submit', async function (e) {
+// Contact form handler (NO EMAIL SENDING)
+document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -23,24 +23,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const message = document.getElementById('message').value;
 
   if (name && email && message) {
-    try {
-      const res = await fetch("http://localhost:5000/send-message", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message })
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        alert(`Thank you, ${name}! Your message has been sent.`);
-        document.getElementById('contactForm').reset();
-      } else {
-        alert("Message sending failed! Please try again.");
-      }
-    } catch (error) {
-      alert("Server error! Check if your backend is running.");
-    }
+    alert(`Thank you, ${name}! Your message has been received.`);
+    document.getElementById('contactForm').reset(); // reset form
   } else {
     alert('Please fill all fields!');
   }
